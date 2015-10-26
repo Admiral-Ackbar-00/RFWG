@@ -1,6 +1,8 @@
 require "creation"
 require "menu"
 
+--ANY COMMENT HERE
+
 --needed so when we call, it wont overwrite the love.load function
 function load()
 end
