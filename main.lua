@@ -1,7 +1,6 @@
 require "creation"
 require "menu"
 
-
 --needed so when we call, it wont overwrite the love.load function
 function load()
 end
@@ -12,7 +11,7 @@ end
 
 function love.load()
 	gamestate = "menu"
-		
+
 	--specifies the fonts to be used
 	titlefont = love.graphics.newFont("OpenSans-ExtraBold.ttf",40)
 	boldfont = love.graphics.newFont("OpenSans-Bold.ttf",30)

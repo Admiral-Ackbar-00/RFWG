@@ -17,7 +17,6 @@ end
 function menu_draw()
 		
 	love.graphics.setFont(titlefont)
-	love.graphics.setColor(255, 0, 144)
 	love.graphics.printf(welcome,5,5,1024,"left")
 	love.graphics.setColor(255,255,255)
 	love.graphics.draw(earth_globe, 15, 60)

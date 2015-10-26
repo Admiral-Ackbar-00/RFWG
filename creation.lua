@@ -8,7 +8,7 @@ function creation_menu_load()
 	local worldhooks = love.filesystem.load("/LIBRARIES/CREATION/worldhooks.lua")()	
 	local worldsize = love.filesystem.load("/LIBRARIES/CREATION/worldsize.lua")()
 	local worldhydro = love.filesystem.load("/LIBRARIES/CREATION/worldhydro.lua")()		
-	
+
 	
 	whiteboard = love.graphics.newCanvas(1280, 800) 	
 	
@@ -31,7 +31,8 @@ function creation_menu_draw()
 	love.graphics.draw(earth_globe, 15, 60)
 	love.graphics.setFont(titlefont)
 	love.graphics.getBackgroundColor(0,0,0)
-	love.graphics.setColor(255, 0, 144)
+	love.graphics.setColor(255,0,255)
+
 	love.graphics.printf(creation,5,5,1024,"left")
 	
 	
@@ -46,6 +47,9 @@ function creation_menu_draw()
 			end	
 		love.graphics.setFont(regularfont)
 		love.graphics.printf(v.text,v.x,v.y,300,"left")	
+		end
+	elseif gamestate == "worldhook" then
+
 		
 		--we need a canvas to draw on
 		love.graphics.setCanvas(canvas)
@@ -60,6 +64,7 @@ function creation_menu_draw()
 		
 		end
 	elseif gamestate == "worldhook" then
+
 		--once the worldhooks option is selected, this makes the creation buttons visibleshows		
 		love.graphics.setColor(146, 147, 146)
 		love.graphics.setFont(boldfont)
@@ -181,6 +186,7 @@ function creation_button_check()
 				v.mouseover = false
 			end	--end if statement
 		end--end for loop
+
 	elseif gamestate == "worldsize" then
 		for i,v in ipairs(worldsize) do
 			if mousex > v.x and mousex < v.x + regularfont:getWidth(v.text) and mousey > v.y and mousey < v.y + regularfont:getHeight(v.text) then
@@ -197,18 +203,20 @@ function creation_button_check()
 				v.mouseover = false
 			end	--end if statement
 		end--end for loop	
+
 	end--end elseif
 end
 
 function worldhook()
 	gamestate = "worldhook"
-end
+
 function world_size()
 	gamestate = "worldsize"
 end
 function world_hydro()
 	gamestate = "worldhydro"
 end
+
 function save()
 	gamestate = "save"
 end
