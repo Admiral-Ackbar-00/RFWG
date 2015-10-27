@@ -78,7 +78,6 @@ function creation_menu_draw()
 		for i, v in ipairs(worldhooks) do
 			if v.mouseover == false then 
 				love.graphics.setColor(255,255,255)
-			end
 			if v.mouseover == true then 
 				love.graphics.setColor(146, 147, 146)
 			end	
