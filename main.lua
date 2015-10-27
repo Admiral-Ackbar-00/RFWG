@@ -15,12 +15,12 @@ function love.load()
 	gamestate = "menu"
 
 	--specifies the fonts to be used
-	titlefont = love.graphics.newFont("OpenSans-ExtraBold.ttf",40)
-	boldfont = love.graphics.newFont("OpenSans-Bold.ttf",30)
-	regularfont = love.graphics.newFont("OpenSans-Regular.ttf",15)
-	lightfont = love.graphics.newFont("OpenSans-Light.ttf",10)
-	smallfont = love.graphics.newFont("OpenSans-Light.ttf",8)
-	xsmallfont = love.graphics.newFont("OpenSans-Light.ttf",6)
+	titlefont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-ExtraBold.ttf",40)
+	boldfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Bold.ttf",30)
+	regularfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Regular.ttf",15)
+	lightfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Light.ttf",10)
+	smallfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Light.ttf",8)
+	xsmallfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Light.ttf",6)
 	
 	menu_load()
 	

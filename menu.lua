@@ -16,10 +16,12 @@ end
 
 function menu_draw()
 		
-	love.graphics.setFont(titlefont)
-	love.graphics.printf(welcome,5,5,1024,"left")
-	love.graphics.setColor(255,255,255)
 	love.graphics.draw(earth_globe, 15, 60)
+	love.graphics.setFont(titlefont)
+	love.graphics.getBackgroundColor(0,0,0)
+	love.graphics.setColor(255,0,255)
+	love.graphics.printf(welcome,5,5,1024,"left")
+	
 	
 	--draws and highlights the buttons out of the menubutton table.	
 		

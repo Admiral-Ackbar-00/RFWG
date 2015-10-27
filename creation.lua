@@ -18,8 +18,9 @@ function creation_menu_load()
 	creationbutton[3] = {text = "3. World Hydrography", x = 430, y = 200, execute=world_hydro}
 	creationbutton[4] = {text = "4. Regional Land & Water Distribution", x = 430, y = 250, execute=landandwater_distro}
 	creationbutton[5] = {text = "5. Save options", x = 430, y = 300, execute=save}
-	creationbutton[6] = {text = "6. Back to Main Menu", x = 430, y = 350, execute=menu}
-	creationbutton[7] = {text = "7. Quit to Desktop", x = 430, y = 400, execute=quit}
+	creationbutton[6] = {text = "6. Back to Creation Menu", x = 430, y = 350, execute=createworld}
+	creationbutton[7] = {text = "7. Back to Main Menu", x = 430, y = 400, execute=menu}
+	creationbutton[8] = {text = "8. Quit to Desktop", x = 430, y = 450, execute=quit}
 	
 	
 end
@@ -32,7 +33,6 @@ function creation_menu_draw()
 	love.graphics.setFont(titlefont)
 	love.graphics.getBackgroundColor(0,0,0)
 	love.graphics.setColor(255,0,255)
-
 	love.graphics.printf(creation,5,5,1024,"left")
 	
 	
@@ -48,21 +48,20 @@ function creation_menu_draw()
 		love.graphics.setFont(regularfont)
 		love.graphics.printf(v.text,v.x,v.y,300,"left")	
 		end
-	elseif gamestate == "worldhook" then
+	--elseif gamestate == "worldhook" then
 
-		
 		--we need a canvas to draw on
-		love.graphics.setCanvas(canvas)
-		whiteboard:clear()
-		love.graphics.setBlendMode('alpha')
-		love.graphics.setColor(30, 30, 30)
+		--love.graphics.setCanvas(canvas)
+		--whiteboard:clear()
+		--love.graphics.setBlendMode('alpha')
+		--love.graphics.setColor(30, 30, 30)
 		
 		--Draws a rectangle at x: 750, y: 30 with a width of 660 and a height of 790
-		love.graphics.rectangle( "fill", 750, 30, 660, 790)
-		love.graphics.setBlendMode('alpha')
-		love.graphics.draw(whiteboard, 600, 50)
+		--love.graphics.rectangle( "fill", 750, 30, 660, 790)
+		--love.graphics.setBlendMode('alpha')
+		--love.graphics.draw(whiteboard, 600, 50)
 		
-		end
+		--end
 	elseif gamestate == "worldhook" then
 
 		--once the worldhooks option is selected, this makes the creation buttons visibleshows		
@@ -74,6 +73,7 @@ function creation_menu_draw()
 		love.graphics.printf(creationbutton[5].text, creationbutton[5].x, creationbutton[5].y, 500, "left")	
 		love.graphics.printf(creationbutton[6].text, creationbutton[6].x, creationbutton[6].y, 500, "left")	
 		love.graphics.printf(creationbutton[7].text, creationbutton[7].x, creationbutton[7].y, 500, "left")	
+		love.graphics.printf(creationbutton[8].text, creationbutton[8].x, creationbutton[8].y, 500, "left")	
 		
 		for i, v in ipairs(worldhooks) do
 			if v.mouseover == false then 
@@ -95,7 +95,8 @@ function creation_menu_draw()
 		love.graphics.setFont(regularfont)		
 		love.graphics.printf(creationbutton[5].text, creationbutton[5].x, creationbutton[5].y, 500, "left")	
 		love.graphics.printf(creationbutton[6].text, creationbutton[6].x, creationbutton[6].y, 500, "left")	
-		love.graphics.printf(creationbutton[7].text, creationbutton[7].x, creationbutton[7].y, 500, "left")	
+		love.graphics.printf(creationbutton[7].text, creationbutton[7].x, creationbutton[7].y, 500, "left")
+		love.graphics.printf(creationbutton[8].text, creationbutton[8].x, creationbutton[8].y, 500, "left")			
 		
 		--we need a canvas to draw on
 		love.graphics.setCanvas(canvas)
@@ -128,7 +129,8 @@ function creation_menu_draw()
 		love.graphics.setFont(regularfont)
 		love.graphics.printf(creationbutton[5].text, creationbutton[5].x, creationbutton[5].y, 500, "left")	
 		love.graphics.printf(creationbutton[6].text, creationbutton[6].x, creationbutton[6].y, 500, "left")	
-		love.graphics.printf(creationbutton[7].text, creationbutton[7].x, creationbutton[7].y, 500, "left")	
+		love.graphics.printf(creationbutton[7].text, creationbutton[7].x, creationbutton[7].y, 500, "left")
+		love.graphics.printf(creationbutton[8].text, creationbutton[8].x, creationbutton[8].y, 500, "left")			
 		
 		--we need a canvas to draw on
 		love.graphics.setCanvas(canvas)
@@ -207,12 +209,19 @@ function creation_button_check()
 	end--end elseif
 end
 
+function createworld()
+	gamestate = "createworld"
+	creation_menu_load()
+end
+
 function worldhook()
 	gamestate = "worldhook"
+end
 
 function world_size()
 	gamestate = "worldsize"
 end
+
 function world_hydro()
 	gamestate = "worldhydro"
 end
