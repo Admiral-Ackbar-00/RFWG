@@ -45,6 +45,8 @@ function love.draw()
 	elseif gamestate == "worldsize" then
 		creation_menu_draw()
 	elseif gamestate == "worldhydro" then
+		creation_menu_draw()
+	elseif gamestate == "landandwaterdistro" then
 		creation_menu_draw()	
 	end
 	
@@ -69,7 +71,9 @@ function love.update(dt)
 	elseif gamestate == "worldsize" then
 		creation_menu_update(dt)	
 	elseif gamestate == "worldhydro" then
-		creation_menu_update(dt)	
+		creation_menu_update(dt)
+	elseif gamestate == "landandwaterdistro" then
+		creation_menu_update(dt)		
 	end
 end
 
@@ -86,8 +90,9 @@ function love.mousepressed(x,y,button)
 		creation_menu_mousepressed(x,y,button)	
 	elseif gamestate == "worldhydro" then
 		creation_menu_mousepressed(x,y,button)	
+	elseif gamestate == "landandwaterdistro" then
+		creation_menu_mousepressed(x,y,button)	
 	end
-	
 end
 
 function love.mousereleased(x,y,button)
