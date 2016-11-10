@@ -1,8 +1,13 @@
+--[[
+    INSERT COMMENT HERE
+    --]]
+
+
 require "cupid"
 
 function love.conf(t)
     t.window.width = 1280 -- sets the width of the application
-    t.window.height = 800-- sets the height of the application
+    t.window.height = 720-- sets the height of the application
 	
 	t.modules.joystick = false
 	

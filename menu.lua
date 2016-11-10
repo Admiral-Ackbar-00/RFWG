@@ -1,3 +1,6 @@
+--[[
+    INSERT COMMENT HERE
+    --]]
 
 function menu_load()
 	welcome = "New World: A Random Fantasy World Generator"

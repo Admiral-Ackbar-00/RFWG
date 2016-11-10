@@ -1,5 +1,11 @@
+--[[
+    INSERT COMMENT HERE
+    --]]
+
+
 require "creation"
 require "menu"
+require "landandwaterdistro"
 
 --ANY COMMENT HERE
 
@@ -47,13 +53,13 @@ function love.draw()
 	elseif gamestate == "worldhydro" then
 		creation_menu_draw()
 	elseif gamestate == "landandwaterdistro" then
-		creation_menu_draw()	
+		landandwaterdistro_draw()	
 	end
 	
 	--displays the current gamestate in bottom lefthand corner
 	love.graphics.setColor(255,255,255)
 	love.graphics.setFont(lightfont)
-	love.graphics.printf(gamestate, 1200, 780, 100, "left")
+	love.graphics.printf(gamestate, 1200, 700, 100, "left")
 end 
 
 function love.update(dt)
@@ -73,7 +79,7 @@ function love.update(dt)
 	elseif gamestate == "worldhydro" then
 		creation_menu_update(dt)
 	elseif gamestate == "landandwaterdistro" then
-		creation_menu_update(dt)		
+		landandwaterdistro_update(dt)		
 	end
 end
 
@@ -91,7 +97,7 @@ function love.mousepressed(x,y,button)
 	elseif gamestate == "worldhydro" then
 		creation_menu_mousepressed(x,y,button)	
 	elseif gamestate == "landandwaterdistro" then
-		creation_menu_mousepressed(x,y,button)	
+		landandwaterdistro_mousepressed(x,y,button)	
 	end
 end
 
