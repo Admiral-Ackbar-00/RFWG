@@ -5,21 +5,15 @@
 
 require "creation"
 require "menu"
-require "landandwaterdistro"
+--require "landandwaterdistro"
 
---ANY COMMENT HERE
-
---needed so when we call, it wont overwrite the love.load function
-function load()
-end
-
-function selector(range1, range2)
-   outcome = math.random(range1, range2)
-end
 
 function love.load()
 	gamestate = "menu"
-
+	
+	mousex = love.mouse.getX()
+	mousey = love.mouse.getY()
+	
 	--specifies the fonts to be used
 	titlefont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-ExtraBold.ttf",40)
 	boldfont = love.graphics.newFont("/LIBRARIES/fonts/Open_Sans/OpenSans-Bold.ttf",30)
@@ -52,8 +46,8 @@ function love.draw()
 		creation_menu_draw()
 	elseif gamestate == "worldhydro" then
 		creation_menu_draw()
-	elseif gamestate == "landandwaterdistro" then
-		landandwaterdistro_draw()	
+	elseif gamestate == "landwaterdistro" then
+		creation_menu_draw()	
 	end
 	
 	--displays the current gamestate in bottom lefthand corner
@@ -78,8 +72,8 @@ function love.update(dt)
 		creation_menu_update(dt)	
 	elseif gamestate == "worldhydro" then
 		creation_menu_update(dt)
-	elseif gamestate == "landandwaterdistro" then
-		landandwaterdistro_update(dt)		
+	elseif gamestate == "landwaterdistro" then
+		creation_menu_update(dt)		
 	end
 end
 
@@ -96,8 +90,8 @@ function love.mousepressed(x,y,button)
 		creation_menu_mousepressed(x,y,button)	
 	elseif gamestate == "worldhydro" then
 		creation_menu_mousepressed(x,y,button)	
-	elseif gamestate == "landandwaterdistro" then
-		landandwaterdistro_mousepressed(x,y,button)	
+	elseif gamestate == "landwaterdistro" then
+		creation_menu_mousepressed(x,y,button)	
 	end
 end
 

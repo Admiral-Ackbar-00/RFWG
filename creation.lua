@@ -13,13 +13,11 @@ function creation_menu_load()
 	local worldhydro = love.filesystem.load("/LIBRARIES/CREATION/worldhydro.lua")()		
 	local landandwaterdistro = love.filesystem.load("/LIBRARIES/CREATION/landandwaterdistro.lua")()	
 	
-	whiteboard = love.graphics.newCanvas(1280, 800) 	
-	
 	creationbutton = {}
 	creationbutton[1] = {text = "1. World Hooks", x = 430, y = 100, execute=worldhook}
 	creationbutton[2] = {text = "2. World Size", x = 430, y = 150, execute=world_size}
 	creationbutton[3] = {text = "3. World Hydrography", x = 430, y = 200, execute=world_hydro}
-	creationbutton[4] = {text = "4. Regional Land and Water Distribution", x = 430, y = 250, execute=landandwaterdistro}
+	creationbutton[4] = {text = "4. Regional Land and Water Distribution", x = 430, y = 250, execute=landwaterdistro }
 	creationbutton[5] = {text = "5. Save options", x = 430, y = 300, execute=save}
 	creationbutton[6] = {text = "6. Back to Creation Menu", x = 430, y = 350, execute=createworld}
 	creationbutton[7] = {text = "7. Back to Main Menu", x = 430, y = 400, execute=menu}
@@ -118,8 +116,8 @@ function creation_menu_draw()
 		love.graphics.setFont(regularfont)
 		love.graphics.printf(v.text,v.x,v.y,300,"left")		
 		end
-	--[[
-	elseif gamestate == "landandwaterdistro" then
+	
+	elseif gamestate == "landwaterdistro" then
 
 		--once the landandwaterdistro option is selected, this makes the creation buttons visible		
 		love.graphics.setColor(146, 147, 146)
@@ -141,8 +139,6 @@ function creation_menu_draw()
 		love.graphics.setFont(regularfont)
 		love.graphics.printf(v.text,v.x,v.y,300,"left")	
 		end
-		]]
-	
 	end	--end elseif for gamestate worldhook
 end
 
@@ -156,7 +152,6 @@ function creation_menu_mousepressed(x,y,button)
 		if mousex > v.x and mousex < v.x + boldfont:getWidth(v.text) and mousey > v.y and mousey < v.y + boldfont:getHeight(v.text) then
 			v.execute()
 		end
-		
 	end	--end for loop
 end
 
@@ -193,7 +188,7 @@ function creation_button_check()
 				v.mouseover = false
 			end	--end if statement
 		end--end for loop	
-	elseif gamestate == "landandwaterdistro" then
+	elseif gamestate == "landwaterdistro" then
 		for i,v in ipairs(landandwaterdistro) do
 			if mousex > v.x and mousex < v.x + regularfont:getWidth(v.text) and mousey > v.y and mousey < v.y + regularfont:getHeight(v.text) then
 				v.mouseover = true
@@ -206,7 +201,7 @@ end
 
 function createworld()
 	gamestate = "createworld"
-	creation_menu_load()
+	--creation_menu_load()
 end
 
 function worldhook()
@@ -221,9 +216,8 @@ function world_hydro()
 	gamestate = "worldhydro"
 end
 
-function landandwaterdistro()
-	gamestate = "landandwaterdistro"
-	landandwaterdistro_load()
+function landwaterdistro()
+	gamestate = "landwaterdistro"
 end
 
 function save()
